@@ -62,6 +62,7 @@
           <a:rule expression="pv!evaluationStatus = &quot;APPROVED&quot;" transitionTo="4"/>
           <a:rule expression="pv!evaluationStatus = &quot;STRUTS_LOG&quot;" transitionTo="5"/>
           <a:rule expression="pv!evaluationStatus = &quot;SOAP_EVAL&quot;" transitionTo="8"/>
+          <a:rule expression="pv!evaluationStatus = &quot;JMS_EVENT&quot;" transitionTo="9"/>
           <a:rule expression="true" transitionTo="6"/>
         </a:rules>
       </a:node>
@@ -102,6 +103,17 @@
       <!-- SUBMIT TO SOAP INTEGRATION -->
       <a:node id="8" name="Persist via SOAP Web Service" type="integration">
         <a:integrationUuid>e4db3fe1-35b8-4d51-9689-a9a7a9de5642</a:integrationUuid>
+        <a:inputs>
+          <a:input name="employee" value="pv!employee"/>
+        </a:inputs>
+        <a:transitions>
+          <a:transition to="7"/>
+        </a:transitions>
+      </a:node>
+
+      <!-- SUBMIT TO JMS QUEUE INTEGRATION -->
+      <a:node id="9" name="Publish Employee Event to JMS Queue" type="integration">
+        <a:integrationUuid>g6cd8b4e-5678-efgh-efgh-1234567890cd</a:integrationUuid>
         <a:inputs>
           <a:input name="employee" value="pv!employee"/>
         </a:inputs>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<integrationObject xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <integration name="AP_PublishEmployeeJMS" uuid="g6cd8b4e-5678-efgh-efgh-1234567890cd">
+    <a:uuid>g6cd8b4e-5678-efgh-efgh-1234567890cd</a:uuid>
+    <a:name>AP_PublishEmployeeJMS</a:name>
+    <a:description>Publishes an asynchronous JMS message to employee.events.queue to broadcast employee lifecycle events</a:description>
+    <a:connectedSystemUuid>0c2bde29-798e-4a61-9c17-dcf3dbb07cf0</a:connectedSystemUuid>
+    <a:properties>
+      <a:property>
+        <a:name>destinationQueue</a:name>
+        <a:value xsi:type="xsd:string">employee.events.queue</a:value>
+      </a:property>
+      <a:property>
+        <a:name>messageType</a:name>
+        <a:value xsi:type="xsd:string">TEXT_XML</a:value>
+      </a:property>
+      <a:property>
+        <a:name>payloadTemplate</a:name>
+        <a:value xsi:type="xsd:string">&lt;EmployeeEvent&gt;&lt;FirstName&gt;{ri!employee.firstName}&lt;/FirstName&gt;&lt;LastName&gt;{ri!employee.lastName}&lt;/LastName&gt;&lt;Department&gt;{ri!employee.department}&lt;/Department&gt;&lt;Salary&gt;{ri!employee.salary}&lt;/Salary&gt;&lt;/EmployeeEvent&gt;</a:value>
+      </a:property>
+    </a:properties>
+    <a:ruleInputs>
+      <a:ruleInput name="employee" type="tns:Employee" xmlns:tns="urn:com:appian:types:Employee"/>
+    </a:ruleInputs>
+    <a:roleMap>
+      <a:role name="Administrator"/>
+      <a:role name="Viewer"/>
+    </a:roleMap>
+  </integration>
+</integrationObject>

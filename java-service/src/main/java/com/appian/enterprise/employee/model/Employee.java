@@ -77,6 +77,15 @@ public class Employee implements Serializable {
         this.departmentId = departmentId;
     }
 
+    // Alias for Appian CDT property matching
+    public String getDepartment() {
+        return departmentId;
+    }
+
+    public void setDepartment(String department) {
+        this.departmentId = department;
+    }
+
     public BigDecimal getSalary() {
         return salary;
     }

@@ -49,6 +49,10 @@ public class EmployeeService {
         return employee;
     }
 
+    public Employee createEmployee(Employee employee) {
+        return saveEmployee(employee);
+    }
+
     public boolean deleteEmployee(String employeeId) {
         return employeeStore.remove(employeeId) != null;
     }

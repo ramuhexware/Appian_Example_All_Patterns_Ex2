@@ -66,6 +66,11 @@
         <a:name>AP_SubmitEmployeeStruts</a:name>
         <a:uuid>f5bc7a3f-1234-abcd-abcd-9876543210ab</a:uuid>
       </a:associatedObject>
+      <a:associatedObject>
+        <a:type>integration</a:type>
+        <a:name>AP_PublishEmployeeJMS</a:name>
+        <a:uuid>g6cd8b4e-5678-efgh-efgh-1234567890cd</a:uuid>
+      </a:associatedObject>
 
       <!-- Process Model -->
       <a:associatedObject>
