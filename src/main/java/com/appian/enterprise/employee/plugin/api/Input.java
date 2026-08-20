@@ -1,0 +1,12 @@
+package com.appian.enterprise.employee.plugin.api;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER})
+public @interface Input {
+    boolean required() default false;
+}

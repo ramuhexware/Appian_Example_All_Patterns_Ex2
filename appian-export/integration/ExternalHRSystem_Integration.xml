@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<integration name="ExternalHRSystem_GetBackgroundCheck" uuid="int-bgcheck-001">
+  <description>REST Integration object configured to perform background check verification requests.</description>
+  <connected-system-uuid>cs-hr-backend-001</connected-system-uuid>
+  <relative-path>/api/v1/employees/{employeeId}</relative-path>
+  <http-method>GET</http-method>
+</integration>

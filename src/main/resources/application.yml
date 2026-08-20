@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: appian-employee-all-patterns
+  artemis:
+    mode: embedded
+    embedded:
+      enabled: true
+      persistent: false
+  jms:
+    template:
+      default-destination: employee.events.queue
+
+logging:
+  level:
+    root: INFO
+    com.appian.enterprise.employee: DEBUG

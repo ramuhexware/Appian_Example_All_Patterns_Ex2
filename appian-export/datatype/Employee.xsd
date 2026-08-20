@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="urn:com:appian:types:employee"
+            targetNamespace="urn:com:appian:types:employee">
+
+  <xsd:complexType name="Employee">
+    <xsd:annotation>
+      <xsd:documentation><![CDATA[Appian Complex Data Type (CDT) for Enterprise Employee record]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="employeeId" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Id @GeneratedValue</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="firstName" nillable="true" type="xsd:string"/>
+      <xsd:element name="lastName" nillable="true" type="xsd:string"/>
+      <xsd:element name="email" nillable="true" type="xsd:string"/>
+      <xsd:element name="title" nillable="true" type="xsd:string"/>
+      <xsd:element name="departmentId" nillable="true" type="xsd:string"/>
+      <xsd:element name="salary" nillable="true" type="xsd:decimal"/>
+      <xsd:element name="status" nillable="true" type="xsd:string"/>
+      <xsd:element name="hireDate" nillable="true" type="xsd:date"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

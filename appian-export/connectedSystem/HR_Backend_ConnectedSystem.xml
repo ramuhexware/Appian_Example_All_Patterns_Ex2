@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connected-system name="HR Backend System Connected System" uuid="cs-hr-backend-001">
+  <description>HTTP REST Connected System storing base URLs, authentication credentials, and headers.</description>
+  <base-url>http://localhost:8080</base-url>
+  <authentication-type>API_KEY</authentication-type>
+</connected-system>

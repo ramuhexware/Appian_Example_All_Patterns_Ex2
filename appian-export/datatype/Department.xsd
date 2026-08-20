@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="urn:com:appian:types:employee"
+            targetNamespace="urn:com:appian:types:employee">
+
+  <xsd:complexType name="Department">
+    <xsd:annotation>
+      <xsd:documentation><![CDATA[Appian Complex Data Type (CDT) for Department metadata]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="departmentId" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Id</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="name" nillable="true" type="xsd:string"/>
+      <xsd:element name="code" nillable="true" type="xsd:string"/>
+      <xsd:element name="managerName" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

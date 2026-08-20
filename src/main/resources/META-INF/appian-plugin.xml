@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appian-plugin key="com.appian.enterprise.employee.plugin" name="Appian Employee Management Custom Plug-in">
+    <plugin-info>
+        <description>Enterprise Custom Plug-in providing Smart Services and Expression Functions for Employee Management Process Workflows and SAIL UI</description>
+        <vendor name="Enterprise Integration Team" url="https://enterprise.com"/>
+        <version>1.0.0</version>
+    </plugin-info>
+
+    <!-- Appian Custom Smart Services for Process Models -->
+    <smart-service key="EmployeeAuditLoggerSmartService" class="com.appian.enterprise.employee.plugin.smartservice.EmployeeAuditLoggerSmartService">
+        <name>Employee Audit Logger</name>
+        <description>Logs employee audit events during process execution</description>
+    </smart-service>
+
+    <smart-service key="EmployeeBonusCalculatorSmartService" class="com.appian.enterprise.employee.plugin.smartservice.EmployeeBonusCalculatorSmartService">
+        <name>Employee Bonus Calculator</name>
+        <description>Calculates employee bonus based on performance rating</description>
+    </smart-service>
+
+    <!-- Appian Custom Expression Functions -->
+    <function-extension key="EmployeeFunctions" class="com.appian.enterprise.employee.plugin.function.EmployeeExpressionFunctions">
+        <category name="Employee Management"/>
+    </function-extension>
+</appian-plugin>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.appian.enterprise</groupId>
+    <artifactId>appian-employee-all-patterns</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Appian Employee All Integration Patterns</name>
+    <description>Enterprise Java Repository featuring Appian Plug-ins, REST, SOAP, JMS, Struts, Web Servlets, SAIL Forms, and Appian Export Package</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.3</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <java.version>17</java.version>
+        <struts2.version>6.3.0.2</struts2.version>
+    </properties>
+
+    <dependencies>
+        <!-- Spring Boot Web Starter for REST APIs and Servlet Container -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Spring Boot JMS & Embedded Artemis Messaging (Jakarta JMS) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-artemis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>artemis-jakarta-server</artifactId>
+        </dependency>
+
+        <!-- Apache Struts 2 Framework -->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>${struts2.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Jakarta Web Services (SOAP) -->
+        <dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
+        <!-- Servlet API -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Developer Utilities & Testing -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

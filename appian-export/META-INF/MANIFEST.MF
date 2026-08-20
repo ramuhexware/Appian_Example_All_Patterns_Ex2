@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Appian-Export-Package-Version: 23.4.0.0
+Export-Date: 2026-08-20T14:00:00Z
+Export-By: Administrator
+Package-Name: Employee Management Integration Artifacts
+Description: Export package containing CDTs (XSD), Process Models, Web APIs, Connected Systems, and SAIL Forms for Employee Management.
