@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <integration>
+        <name>AP_SubmitEmployeePlugin</name>
+        <uuid>_a-0000e6a3-18f9-8000-da1e-7f0000014e88_INT_SubmitEmployeePlugin</uuid>
+        <description>Submits employee details using the Appian Custom Smart Service / Integration SDK plugin</description>
+        <connectedSystemUuid>0c2bde29-798e-4a61-9c17-dcf3dbb07cf0</connectedSystemUuid>
+        <integrationTemplateKey>EnterpriseEmployeeManagementIntegration</integrationTemplateKey>
+        <templateId>EnterpriseEmployeeManagementIntegration</templateId>
+        <method>POST</method>
+        <relativePath>/api/v1/employees</relativePath>
+        <body>
+            <type>EXPRESSION</type>
+            <expression>
+                a!toJson(
+                  value: {
+                    firstName: ri!employee.firstName,
+                    lastName: ri!employee.lastName,
+                    email: ri!employee.email,
+                    department: ri!employee.department,
+                    salary: ri!employee.salary,
+                    ssn: ri!employee.ssn,
+                    integrationTypeUsed: "CUSTOM_PLUGIN"
+                  }
+                )
+            </expression>
+        </body>
+    </integration>
+</contentHaul>

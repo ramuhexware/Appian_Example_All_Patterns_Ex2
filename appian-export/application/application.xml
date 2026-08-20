@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<applicationObject xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <application name="AP_EmployeeManagementPatterns" uuid="a4dbde29-798e-4a61-9c17-dcf3dbb07cf9">
+    <a:uuid>a4dbde29-798e-4a61-9c17-dcf3dbb07cf9</a:uuid>
+    <a:name>Appian Employee Management Integration Patterns</a:name>
+    <a:description>Appian integration package showcasing REST, SOAP, Servlets, JARs, Plugins, and Struts 2 actions for Employee Management.</a:description>
+    <a:version>1.0.0</a:version>
+    <a:associatedObjects>
+      <!-- Custom Data Types (CDTs) -->
+      <a:associatedObject>
+        <a:type>datatype</a:type>
+        <a:name>Employee</a:name>
+        <a:namespace>urn:com:appian:types:Employee</a:namespace>
+      </a:associatedObject>
+      <a:associatedObject>
+        <a:type>datatype</a:type>
+        <a:name>Department</a:name>
+        <a:namespace>urn:com:appian:types:Department</a:namespace>
+      </a:associatedObject>
+
+      <!-- Connected System -->
+      <a:associatedObject>
+        <a:type>connectedSystem</a:type>
+        <a:name>AP_HTTP_ConnectedSystem</a:name>
+        <a:uuid>0c2bde29-798e-4a61-9c17-dcf3dbb07cf0</a:uuid>
+      </a:associatedObject>
+
+      <!-- Integrations -->
+      <a:associatedObject>
+        <a:type>integration</a:type>
+        <a:name>AP_GetEmployeeREST</a:name>
+        <a:uuid>b19c8f0f-8c31-4a5f-9e12-d2a9a8be1234</a:uuid>
+      </a:associatedObject>
+      <a:associatedObject>
+        <a:type>integration</a:type>
+        <a:name>AP_GetEmployeeSOAP</a:name>
+        <a:uuid>e4db3fe1-35b8-4d51-9689-a9a7a9de5643</a:uuid>
+      </a:associatedObject>
+      <a:associatedObject>
+        <a:type>integration</a:type>
+        <a:name>AP_EmployeeExportServlet</a:name>
+        <a:uuid>d19c8f0f-8c31-4a5f-9e12-d2a9a8be5678</a:uuid>
+      </a:associatedObject>
+      <a:associatedObject>
+        <a:type>integration</a:type>
+        <a:name>AP_SubmitEmployeeJAR</a:name>
+        <a:uuid>_a-0000e6a3-18f9-8000-da1e-7f0000014e88_INT_SubmitEmployeeJAR</a:uuid>
+      </a:associatedObject>
+      <a:associatedObject>
+        <a:type>integration</a:type>
+        <a:name>AP_SubmitEmployeePlugin</a:name>
+        <a:uuid>_a-0000e6a3-18f9-8000-da1e-7f0000014e88_INT_SubmitEmployeePlugin</a:uuid>
+      </a:associatedObject>
+      <a:associatedObject>
+        <a:type>integration</a:type>
+        <a:name>AP_SubmitEmployeeREST</a:name>
+        <a:uuid>e4db3fe1-35b8-4d51-9689-a9a7a9de5641</a:uuid>
+      </a:associatedObject>
+      <a:associatedObject>
+        <a:type>integration</a:type>
+        <a:name>AP_SubmitEmployeeSOAP</a:name>
+        <a:uuid>e4db3fe1-35b8-4d51-9689-a9a7a9de5642</a:uuid>
+      </a:associatedObject>
+      <a:associatedObject>
+        <a:type>integration</a:type>
+        <a:name>AP_SubmitEmployeeStruts</a:name>
+        <a:uuid>f5bc7a3f-1234-abcd-abcd-9876543210ab</a:uuid>
+      </a:associatedObject>
+
+      <!-- Process Model -->
+      <a:associatedObject>
+        <a:type>processModel</a:type>
+        <a:name>AP_EmployeeUnifiedPatternsWorkflow</a:name>
+        <a:uuid>c1234567-1234-abcd-abcd-1234567890ab</a:uuid>
+      </a:associatedObject>
+
+      <!-- Content Interfaces -->
+      <a:associatedObject>
+        <a:type>content</a:type>
+        <a:name>AP_EmployeeCreateEditForm</a:name>
+        <a:uuid>_a-0000e6a3-18f9-8000-da1e-7f0000014e88_INT_EmployeeCreateEditForm</a:uuid>
+      </a:associatedObject>
+      <a:associatedObject>
+        <a:type>content</a:type>
+        <a:name>AP_EmployeeDashboardSummary</a:name>
+        <a:uuid>_a-0000e6a3-18f9-8000-da1e-7f0000014e88_INT_EmployeeDashboardSummary</a:uuid>
+      </a:associatedObject>
+      <a:associatedObject>
+        <a:type>content</a:type>
+        <a:name>AP_EmployeeApprovalTaskForm</a:name>
+        <a:uuid>_a-0000e6a3-18f9-8000-da1e-7f0000014e88_INT_EmployeeApprovalTaskForm</a:uuid>
+      </a:associatedObject>
+    </a:associatedObjects>
+    <a:roleMap>
+      <a:role name="Administrator"/>
+      <a:role name="Viewer"/>
+    </a:roleMap>
+  </application>
+</applicationObject>

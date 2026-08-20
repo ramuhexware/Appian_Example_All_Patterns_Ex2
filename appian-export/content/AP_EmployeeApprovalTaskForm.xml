@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentObject xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <content name="AP_EmployeeApprovalTaskForm" uuid="_a-0000e6a3-18f9-8000-da1e-7f0000014e88_INT_EmployeeApprovalTaskForm">
+    <a:uuid>_a-0000e6a3-18f9-8000-da1e-7f0000014e88_INT_EmployeeApprovalTaskForm</a:uuid>
+    <a:name>AP_EmployeeApprovalTaskForm</a:name>
+    <a:description>Appian SAIL Form for HR Manager approval decision task on employee onboarding/bonus request.</a:description>
+    <a:expression><![CDATA[
+a!formLayout(
+  label: "HR Management - Employee Onboarding & Bonus Review",
+  instructions: "Review employee background and performance metrics to approve or reject request.",
+  contents: {
+    a!readOnlyGridField(
+      label: "Employee Profile",
+      data: ri!employee,
+      columns: {
+        a!gridColumn(label: "Employee Name", value: concat(fv!row.firstName, " ", fv!row.lastName)),
+        a!gridColumn(label: "Department", value: fv!row.department),
+        a!gridColumn(label: "Base Salary ($)", value: fv!row.salary),
+        a!gridColumn(label: "Status", value: fv!row.status)
+      }
+    ),
+    a!sectionLayout(
+      label: "Approval Decision",
+      contents: {
+        a!radioButtonField(
+          label: "Decision",
+          choiceLabels: {"Approve Employee", "Reject Request"},
+          choiceValues: {"APPROVED", "REJECTED"},
+          value: ri!employee.status,
+          saveInto: ri!employee.status,
+          required: true()
+        ),
+        a!paragraphField(
+          label: "HR Rationale Notes",
+          placeholder: "Enter manager justification...",
+          value: ri!notes,
+          saveInto: ri!notes,
+          required: true()
+        )
+      }
+    )
+  },
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidget(
+        label: "Submit Verdict",
+        submit: true(),
+        style: "PRIMARY"
+      )
+    }
+  )
+)
+    ]]></a:expression>
+    <a:ruleInputs>
+      <a:ruleInput name="employee" type="tns:Employee" xmlns:tns="urn:com:appian:types:Employee"/>
+      <a:ruleInput name="notes" type="xsd:string"/>
+    </a:ruleInputs>
+    <a:roleMap>
+      <a:role name="Administrator"/>
+      <a:role name="Viewer"/>
+    </a:roleMap>
+  </content>
+</contentObject>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<integrationObject xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <integration name="AP_SubmitEmployeeStruts" uuid="f5bc7a3f-1234-abcd-abcd-9876543210ab">
+    <a:uuid>f5bc7a3f-1234-abcd-abcd-9876543210ab</a:uuid>
+    <a:name>AP_SubmitEmployeeStruts</a:name>
+    <a:description>Sends a POST request to save employee record via Struts 2 MVC Action Controller (/employeeStruts.action)</a:description>
+    <a:connectedSystemUuid>0c2bde29-798e-4a61-9c17-dcf3dbb07cf0</a:connectedSystemUuid>
+    <a:properties>
+      <a:property>
+        <a:name>method</a:name>
+        <a:value xsi:type="xsd:string">POST</a:value>
+      </a:property>
+      <a:property>
+        <a:name>path</a:name>
+        <a:value xsi:type="xsd:string">/employeeStruts.action</a:value>
+      </a:property>
+      <a:property>
+        <a:name>queryParameters</a:name>
+        <a:value xsi:type="a:Dictionary">
+          <a:pair>
+            <a:key>firstName</a:key>
+            <a:value xsi:type="xsd:string">ri!employee.firstName</a:value>
+          </a:pair>
+          <a:pair>
+            <a:key>lastName</a:key>
+            <a:value xsi:type="xsd:string">ri!employee.lastName</a:value>
+          </a:pair>
+          <a:pair>
+            <a:key>email</a:key>
+            <a:value xsi:type="xsd:string">ri!employee.email</a:value>
+          </a:pair>
+          <a:pair>
+            <a:key>department</a:key>
+            <a:value xsi:type="xsd:string">ri!employee.department</a:value>
+          </a:pair>
+          <a:pair>
+            <a:key>salary</a:key>
+            <a:value xsi:type="xsd:string">tostring(ri!employee.salary)</a:value>
+          </a:pair>
+          <a:pair>
+            <a:key>ssn</a:key>
+            <a:value xsi:type="xsd:string">ri!employee.ssn</a:value>
+          </a:pair>
+        </a:value>
+      </a:property>
+      <a:property>
+        <a:name>timeout</a:name>
+        <a:value xsi:type="xsd:int">10000</a:value>
+      </a:property>
+    </a:properties>
+    <a:ruleInputs>
+      <a:ruleInput name="employee" type="tns:Employee" xmlns:tns="urn:com:appian:types:Employee"/>
+    </a:ruleInputs>
+    <a:roleMap>
+      <a:role name="Administrator"/>
+      <a:role name="Viewer"/>
+    </a:roleMap>
+  </integration>
+</integrationObject>

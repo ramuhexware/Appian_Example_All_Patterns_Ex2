@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentObject xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <content name="AP_EmployeeDashboardSummary" uuid="_a-0000e6a3-18f9-8000-da1e-7f0000014e88_INT_EmployeeDashboardSummary">
+    <a:uuid>_a-0000e6a3-18f9-8000-da1e-7f0000014e88_INT_EmployeeDashboardSummary</a:uuid>
+    <a:name>AP_EmployeeDashboardSummary</a:name>
+    <a:description>Appian SAIL Dashboard Interface providing summary metrics and employee roster grids.</a:description>
+    <a:expression><![CDATA[
+a!dashboardLayout(
+  contents: {
+    a!cardLayout(
+      contents: {
+        a!richTextDisplayField(
+          value: {
+            a!richTextItem(text: "Employee Analytics Dashboard", style: "HEADER_MEDIUM")
+          }
+        )
+      }
+    ),
+    a!columnsLayout(
+      columns: {
+        a!columnLayout(
+          contents: {
+            a!readOnlyGridField(
+              label: "Employee Directory",
+              data: ri!employees,
+              columns: {
+                a!gridColumn(label: "ID", value: fv!row.id),
+                a!gridColumn(label: "Name", value: concat(fv!row.firstName, " ", fv!row.lastName)),
+                a!gridColumn(label: "Department", value: fv!row.department),
+                a!gridColumn(label: "Status", value: fv!row.status),
+                a!gridColumn(label: "Salary ($)", value: fv!row.salary)
+              }
+            )
+          }
+        )
+      }
+    )
+  }
+)
+    ]]></a:expression>
+    <a:ruleInputs>
+      <a:ruleInput name="employees" type="tns:Employee?list" xmlns:tns="urn:com:appian:types:Employee"/>
+    </a:ruleInputs>
+    <a:roleMap>
+      <a:role name="Administrator"/>
+      <a:role name="Viewer"/>
+    </a:roleMap>
+  </content>
+</contentObject>

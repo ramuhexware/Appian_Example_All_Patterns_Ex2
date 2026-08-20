@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<integrationObject xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <integration name="AP_SubmitEmployeeREST" uuid="e4db3fe1-35b8-4d51-9689-a9a7a9de5641">
+    <a:uuid>e4db3fe1-35b8-4d51-9689-a9a7a9de5641</a:uuid>
+    <a:name>AP_SubmitEmployeeREST</a:name>
+    <a:description>Sends a POST request to create an employee record via Spring REST Web API</a:description>
+    <a:connectedSystemUuid>0c2bde29-798e-4a61-9c17-dcf3dbb07cf0</a:connectedSystemUuid>
+    <a:properties>
+      <a:property>
+        <a:name>method</a:name>
+        <a:value xsi:type="xsd:string">POST</a:value>
+      </a:property>
+      <a:property>
+        <a:name>path</a:name>
+        <a:value xsi:type="xsd:string">/api/v1/employees</a:value>
+      </a:property>
+      <a:property>
+        <a:name>headers</a:name>
+        <a:value xsi:type="a:Dictionary">
+          <a:pair>
+            <a:key>Content-Type</a:key>
+            <a:value xsi:type="xsd:string">application/json</a:value>
+          </a:pair>
+        </a:value>
+      </a:property>
+      <a:property>
+        <a:name>body</a:name>
+        <a:value xsi:type="xsd:string">a!toJson(
+  {
+    firstName: ri!employee.firstName,
+    lastName: ri!employee.lastName,
+    email: ri!employee.email,
+    department: ri!employee.department,
+    salary: ri!employee.salary,
+    ssn: ri!employee.ssn,
+    integrationTypeUsed: "REST_API"
+  }
+)</a:value>
+      </a:property>
+      <a:property>
+        <a:name>timeout</a:name>
+        <a:value xsi:type="xsd:int">10000</a:value>
+      </a:property>
+    </a:properties>
+    <a:ruleInputs>
+      <a:ruleInput name="employee" type="tns:Employee" xmlns:tns="urn:com:appian:types:Employee"/>
+    </a:ruleInputs>
+    <a:roleMap>
+      <a:role name="Administrator"/>
+      <a:role name="Viewer"/>
+    </a:roleMap>
+  </integration>
+</integrationObject>

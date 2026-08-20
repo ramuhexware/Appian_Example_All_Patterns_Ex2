@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<integrationObject xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <integration name="AP_GetEmployeeSOAP" uuid="e4db3fe1-35b8-4d51-9689-a9a7a9de5643">
+    <a:uuid>e4db3fe1-35b8-4d51-9689-a9a7a9de5643</a:uuid>
+    <a:name>AP_GetEmployeeSOAP</a:name>
+    <a:description>Sends a SOAP getEmployeeDetailsRequest to retrieve employee details by ID via SOAP Web Service</a:description>
+    <a:connectedSystemUuid>0c2bde29-798e-4a61-9c17-dcf3dbb07cf0</a:connectedSystemUuid>
+    <a:properties>
+      <a:property>
+        <a:name>wsdlUrl</a:name>
+        <a:value xsi:type="xsd:string">http://localhost:8088/ws/employees?wsdl</a:value>
+      </a:property>
+      <a:property>
+        <a:name>operation</a:name>
+        <a:value xsi:type="xsd:string">getEmployeeDetails</a:value>
+      </a:property>
+      <a:property>
+        <a:name>soapAction</a:name>
+        <a:value xsi:type="xsd:string">getEmployeeDetailsRequest</a:value>
+      </a:property>
+      <a:property>
+        <a:name>envelope</a:name>
+        <a:value xsi:type="xsd:string">&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://enterprise.appian.com/employee/soap"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;soap:getEmployeeDetailsRequest&gt;
+         &lt;soap:employeeId&gt;{ri!employeeId}&lt;/soap:employeeId&gt;
+      &lt;/soap:getEmployeeDetailsRequest&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</a:value>
+      </a:property>
+      <a:property>
+        <a:name>timeout</a:name>
+        <a:value xsi:type="xsd:int">10000</a:value>
+      </a:property>
+    </a:properties>
+    <a:ruleInputs>
+      <a:ruleInput name="employeeId" type="xsd:long"/>
+    </a:ruleInputs>
+    <a:roleMap>
+      <a:role name="Administrator"/>
+      <a:role name="Viewer"/>
+    </a:roleMap>
+  </integration>
+</integrationObject>

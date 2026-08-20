@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<integrationObject xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <integration name="AP_SubmitEmployeeSOAP" uuid="e4db3fe1-35b8-4d51-9689-a9a7a9de5642">
+    <a:uuid>e4db3fe1-35b8-4d51-9689-a9a7a9de5642</a:uuid>
+    <a:name>AP_SubmitEmployeeSOAP</a:name>
+    <a:description>Sends a SOAP evaluateEmployeeRequest to process employee record via SOAP Web Service</a:description>
+    <a:connectedSystemUuid>0c2bde29-798e-4a61-9c17-dcf3dbb07cf0</a:connectedSystemUuid>
+    <a:properties>
+      <a:property>
+        <a:name>wsdlUrl</a:name>
+        <a:value xsi:type="xsd:string">http://localhost:8088/ws/employees?wsdl</a:value>
+      </a:property>
+      <a:property>
+        <a:name>operation</a:name>
+        <a:value xsi:type="xsd:string">evaluateEmployee</a:value>
+      </a:property>
+      <a:property>
+        <a:name>soapAction</a:name>
+        <a:value xsi:type="xsd:string">evaluateEmployeeRequest</a:value>
+      </a:property>
+      <a:property>
+        <a:name>envelope</a:name>
+        <a:value xsi:type="xsd:string">&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://enterprise.appian.com/employee/soap"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;soap:evaluateEmployeeRequest&gt;
+         &lt;soap:firstName&gt;{ri!employee.firstName}&lt;/soap:firstName&gt;
+         &lt;soap:lastName&gt;{ri!employee.lastName}&lt;/soap:lastName&gt;
+         &lt;soap:email&gt;{ri!employee.email}&lt;/soap:email&gt;
+         &lt;soap:department&gt;{ri!employee.department}&lt;/soap:department&gt;
+         &lt;soap:salary&gt;{ri!employee.salary}&lt;/soap:salary&gt;
+      &lt;/soap:evaluateEmployeeRequest&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</a:value>
+      </a:property>
+      <a:property>
+        <a:name>timeout</a:name>
+        <a:value xsi:type="xsd:int">10000</a:value>
+      </a:property>
+    </a:properties>
+    <a:ruleInputs>
+      <a:ruleInput name="employee" type="tns:Employee" xmlns:tns="urn:com:appian:types:Employee"/>
+    </a:ruleInputs>
+    <a:roleMap>
+      <a:role name="Administrator"/>
+      <a:role name="Viewer"/>
+    </a:roleMap>
+  </integration>
+</integrationObject>

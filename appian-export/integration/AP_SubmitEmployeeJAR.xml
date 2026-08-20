@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <integration>
+        <name>AP_SubmitEmployeeJAR</name>
+        <uuid>_a-0000e6a3-18f9-8000-da1e-7f0000014e88_INT_SubmitEmployeeJAR</uuid>
+        <description>Submits employee details utilizing classes from custom JAR helper utilities</description>
+        <connectedSystemUuid>0c2bde29-798e-4a61-9c17-dcf3dbb07cf0</connectedSystemUuid>
+        <integrationTemplateKey>EnterpriseEmployeeJarConnectorIntegration</integrationTemplateKey>
+        <templateId>EnterpriseEmployeeJarConnectorIntegration</templateId>
+        <method>POST</method>
+        <relativePath>/api/v1/employees</relativePath>
+        <body>
+            <type>EXPRESSION</type>
+            <expression>
+                a!toJson(
+                  value: {
+                    firstName: ri!employee.firstName,
+                    lastName: ri!employee.lastName,
+                    email: ri!employee.email,
+                    department: ri!employee.department,
+                    salary: ri!employee.salary,
+                    ssn: ri!employee.ssn,
+                    integrationTypeUsed: "CUSTOM_JAR"
+                  }
+                )
+            </expression>
+        </body>
+    </integration>
+</contentHaul>

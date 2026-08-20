@@ -14,8 +14,8 @@ This repository provides a production-grade enterprise Java reference implementa
 | **SOAP Web Service** | [`EmployeeSoapWebService.java`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/java-service/src/main/java/com/appian/enterprise/employee/soap/endpoint/EmployeeSoapWebService.java)<br>[`SoapEmployeeRequest.java`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/java-service/src/main/java/com/appian/enterprise/employee/soap/model/SoapEmployeeRequest.java) | Standard JAX-WS WSDL SOAP Web Service endpoint (`http://localhost:8088/ws/employees?wsdl`) for enterprise SOAP integration. |
 | **JMS Message Queue** | [`EmployeeJmsMessageListener.java`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/java-service/src/main/java/com/appian/enterprise/employee/jms/listener/EmployeeJmsMessageListener.java)<br>[`EmployeeJmsPublisher.java`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/java-service/src/main/java/com/appian/enterprise/employee/jms/publisher/EmployeeJmsPublisher.java) | ActiveMQ JMS queue integration (`employee.events.queue`) triggering asynchronous process events. |
 | **Java Web Servlet** | [`EmployeeExportServlet.java`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/java-service/src/main/java/com/appian/enterprise/employee/servlet/EmployeeExportServlet.java) | Direct HTTP Java Servlet (`/servlet/export-employees`) streaming dynamic CSV employee reports. |
-| **Appian SAIL Forms** | [`Employee_Create_Edit_Form.sail`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/appian-export/forms/Employee_Create_Edit_Form.sail)<br>[`Employee_Dashboard_Summary.sail`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/appian-export/forms/Employee_Dashboard_Summary.sail)<br>[`Employee_Approval_Task_Form.sail`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/appian-export/forms/Employee_Approval_Task_Form.sail) | Native Appian SAIL interface definitions for input forms, record dashboards, and user tasks. |
-| **Appian Export Package** | [`appian-export/`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/appian-export) | Appian package structure containing CDTs (`Employee.xsd`), Process Models (`Employee_Onboarding_Process_Model.xml`), Web APIs, Connected Systems, and Manifest. |
+| **Appian SAIL Interfaces** | [`AP_EmployeeCreateEditForm.xml`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/appian-export/content/AP_EmployeeCreateEditForm.xml)<br>[`AP_EmployeeDashboardSummary.xml`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/appian-export/content/AP_EmployeeDashboardSummary.xml)<br>[`AP_EmployeeApprovalTaskForm.xml`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/appian-export/content/AP_EmployeeApprovalTaskForm.xml) | Native Appian SAIL interface content objects with embedded CDATA expressions for input forms, record dashboards, and user tasks. |
+| **Appian Export Package** | [`appian-export/`](file:///c:/ramu/Project_Assignment/RapidX/FreddeMac_Project_RapidX/Work/Appian_Research_Notes/Appian_Example_All_Patterns_Ex2/appian-export) | Complete Appian deployment package containing CDTs, Process Models, Integrations, Content Objects, Connected Systems, and Application Manifest. |
 
 ---
 
@@ -49,12 +49,12 @@ Appian_Example_All_Patterns_Ex2/
 │           └── java/com/appian/enterprise/employee/AppianEmployeeApplicationTests.java
 └── appian-export/
     ├── META-INF/MANIFEST.MF
+    ├── application/ (application.xml)
+    ├── connectedSystem/ (AP_HTTP_ConnectedSystem.xml)
+    ├── content/ (AP_EmployeeCreateEditForm.xml, AP_EmployeeDashboardSummary.xml, AP_EmployeeApprovalTaskForm.xml)
     ├── datatype/ (Employee.xsd, Department.xsd)
-    ├── processModel/ (Employee_Onboarding_Process_Model.xml)
-    ├── webApi/ (getEmployeeDetails_WebApi.xml)
-    ├── integration/ (ExternalHRSystem_Integration.xml)
-    ├── connectedSystem/ (HR_Backend_ConnectedSystem.xml)
-    └── forms/ (Employee_Create_Edit_Form.sail, Employee_Dashboard_Summary.sail, Employee_Approval_Task_Form.sail)
+    ├── integration/ (AP_GetEmployeeREST.xml, AP_GetEmployeeSOAP.xml, AP_EmployeeExportServlet.xml, AP_SubmitEmployeeJAR.xml, AP_SubmitEmployeePlugin.xml, AP_SubmitEmployeeREST.xml, AP_SubmitEmployeeSOAP.xml, AP_SubmitEmployeeStruts.xml)
+    └── processModel/ (AP_EmployeeUnifiedPatternsWorkflow.xml)
 ```
 
 ---

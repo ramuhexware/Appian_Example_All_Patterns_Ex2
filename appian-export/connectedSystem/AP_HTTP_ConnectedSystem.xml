@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<connectedSystemTestConnection xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <connectedSystem name="AP_HTTP_ConnectedSystem" uuid="0c2bde29-798e-4a61-9c17-dcf3dbb07cf0">
+    <a:uuid>0c2bde29-798e-4a61-9c17-dcf3dbb07cf0</a:uuid>
+    <a:name>AP_HTTP_ConnectedSystem</a:name>
+    <a:description>HTTP Connected System to interact with the Spring Boot Employee Management Integration Service</a:description>
+    <a:templateKey>com.appian.integration.http.HttpConnectedSystemTemplate</a:templateKey>
+    <a:properties>
+      <a:property>
+        <a:name>baseUrl</a:name>
+        <a:value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://localhost:8080</a:value>
+      </a:property>
+      <a:property>
+        <a:name>authenticationType</a:name>
+        <a:value xsi:type="xsd:string" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">none</a:value>
+      </a:property>
+    </a:properties>
+    <a:roleMap>
+      <a:role name="Administrator">
+        <a:users/>
+        <a:groups/>
+      </a:role>
+      <a:role name="Viewer">
+        <a:users/>
+        <a:groups/>
+      </a:role>
+    </a:roleMap>
+  </connectedSystem>
+</connectedSystemTestConnection>

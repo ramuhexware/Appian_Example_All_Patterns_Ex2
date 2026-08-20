@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<integrationObject xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <integration name="AP_EmployeeExportServlet" uuid="d19c8f0f-8c31-4a5f-9e12-d2a9a8be5678">
+    <a:uuid>d19c8f0f-8c31-4a5f-9e12-d2a9a8be5678</a:uuid>
+    <a:name>AP_EmployeeExportServlet</a:name>
+    <a:description>Sends a GET request to trigger direct CSV export via Java EmployeeExportServlet endpoint</a:description>
+    <a:connectedSystemUuid>0c2bde29-798e-4a61-9c17-dcf3dbb07cf0</a:connectedSystemUuid>
+    <a:properties>
+      <a:property>
+        <a:name>method</a:name>
+        <a:value xsi:type="xsd:string">GET</a:value>
+      </a:property>
+      <a:property>
+        <a:name>path</a:name>
+        <a:value xsi:type="xsd:string">/servlet/export-employees</a:value>
+      </a:property>
+      <a:property>
+        <a:name>queryParameters</a:name>
+        <a:value xsi:type="a:Dictionary">
+          <a:pair>
+            <a:key>department</a:key>
+            <a:value xsi:type="xsd:string">ri!department</a:value>
+          </a:pair>
+        </a:value>
+      </a:property>
+      <a:property>
+        <a:name>timeout</a:name>
+        <a:value xsi:type="xsd:int">10000</a:value>
+      </a:property>
+    </a:properties>
+    <a:ruleInputs>
+      <a:ruleInput name="department" type="xsd:string"/>
+    </a:ruleInputs>
+    <a:roleMap>
+      <a:role name="Administrator"/>
+      <a:role name="Viewer"/>
+    </a:roleMap>
+  </integration>
+</integrationObject>
