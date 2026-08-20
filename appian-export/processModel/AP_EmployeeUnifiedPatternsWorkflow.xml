@@ -111,12 +111,10 @@
         </a:transitions>
       </a:node>
 
-      <!-- SUBMIT TO JMS QUEUE INTEGRATION -->
-      <a:node id="9" name="Publish Employee Event to JMS Queue" type="integration">
-        <a:integrationUuid>g6cd8b4e-5678-efgh-efgh-1234567890cd</a:integrationUuid>
-        <a:inputs>
-          <a:input name="employee" value="pv!employee"/>
-        </a:inputs>
+      <!-- PUBLISH TO JMS QUEUE (Appian JMS / messaging plugin pattern) -->
+      <a:node id="9" name="Publish Employee Event to JMS Queue" type="jms_publish">
+        <a:destinationName>employee.events.queue</a:destinationName>
+        <a:messageBody>a!toJson(pv!employee)</a:messageBody>
         <a:transitions>
           <a:transition to="7"/>
         </a:transitions>
